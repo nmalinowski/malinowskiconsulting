@@ -183,8 +183,9 @@ const lightboxClient = document.getElementById('lightboxClient');
 const lightboxDate = document.getElementById('lightboxDate');
 const lightboxService = document.getElementById('lightboxService');
 const lightboxLink = document.getElementById('lightboxLink');
+const lightboxMeta = document.querySelector('.lightbox-meta');
 
-// Open lightbox
+// Open portfolio item lightbox
 document.querySelectorAll('.portfolio-item').forEach(item => {
     item.addEventListener('click', () => {
         const index = parseInt(item.dataset.portfolio);
@@ -194,13 +195,46 @@ document.querySelectorAll('.portfolio-item').forEach(item => {
         lightboxImage.alt = project.title;
         lightboxTitle.textContent = project.title;
         lightboxDescription.textContent = project.description;
+        
+        // Restore Portfolio specific elements
+        lightboxMeta.style.display = 'grid'; 
         lightboxClient.textContent = project.client;
         lightboxDate.textContent = project.date;
         lightboxService.textContent = project.service;
+        
         lightboxLink.href = project.link;
+        lightboxLink.textContent = 'View Project →'; // Reset text
 
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
+    });
+});
+
+// Open team member lightbox
+document.querySelectorAll('.team-card').forEach(item => {
+    item.addEventListener('click', (e) => {
+        // Stop if clicking the LinkedIn icon specifically (handled by HTML onclick, but good safety)
+        if (e.target.closest('.linkedin-icon')) return;
+
+        const index = parseInt(item.dataset.member);
+        const member = teamData[index];
+
+        if (member) {
+            lightboxImage.src = member.image;
+            lightboxImage.alt = member.name;
+            lightboxTitle.textContent = member.name + ' - ' + member.role; // Combine Name and Role
+            lightboxDescription.textContent = member.bio;
+            
+            // Hide Portfolio specific elements not needed for Bio
+            lightboxMeta.style.display = 'none';
+            
+            // Update Link button for LinkedIn
+            lightboxLink.href = member.linkedin;
+            lightboxLink.textContent = 'Connect on LinkedIn';
+            
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
     });
 });
 
