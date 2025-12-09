@@ -481,9 +481,9 @@ section {
     box-shadow: var(--shadow);
     transition: all 0.4s ease;
     cursor: pointer;
-    text-decoration: none;
     display: block;
     color: inherit;
+    position: relative;
 }
 
 .team-card:hover {
@@ -509,6 +509,30 @@ section {
 
 .team-card p {
     color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.linkedin-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #0077b5;
+    color: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.linkedin-icon:hover {
+    background: #005885;
+    transform: scale(1.1);
+}
+
+.linkedin-icon svg {
+    width: 20px;
+    height: 20px;
 }
 
 #team .container>p {
@@ -518,6 +542,8 @@ section {
     color: var(--text-light);
     line-height: 1.8;
 }
+
+
 
 /* Contact */
 .contact-form {
