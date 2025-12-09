@@ -47,6 +47,31 @@ const portfolioData = [
     }
 ];
 
+// Team member data
+const teamData = [
+    {
+        name: 'Nathan Malinowski',
+        role: 'Lead Technical Consultant/Lead Developer',
+        image: 'images/nathan-malinowski.jpeg',
+        bio: 'Nathan Malinowski is a HealthTech engineering leader and entrepreneur who manages software development teams building AI‑enabled radiology workflow and imaging platforms used by thousands of radiologists across the U.S. His background spans full‑stack engineering in .NET, Go, Node.js, and cloud‑native architectures, plus earlier experience in cardiology PACS/VNA support, giving him deep expertise in DICOM, HL7, and regulated healthcare environments. He also runs an AI consulting practice for SMBs and co‑founded a direct‑to‑consumer supplement brand, combining technical leadership with product, compliance, and P&L ownership experience.',
+        linkedin: 'https://www.linkedin.com/in/nathanielmalinowski/'
+    },
+    {
+        name: 'Alexis Malinowski',
+        role: 'Lead Creative Consultant/Graphic Artist',
+        image: 'images/alexis-malinowski.jpeg',
+        bio: 'Alexis Malinowski is an ISTQB‑certified Software QA Engineer with a BS in Software Development, focused on manual testing, test case design, and defect tracking, and aiming to grow further into automation and agile testing practices. She previously spent nearly a decade as a Training Resource Coordinator, where she scheduled instructors, maintained corporate and client websites, supported customers, and managed learning platforms and SharePoint, building strong organizational, communication, and technical support skills. Earlier administrative roles reinforced her strengths in documentation, coordination, and attention to detail.',
+        linkedin: 'https://www.linkedin.com/in/alexismalinowski/'
+    },
+    {
+        name: 'Joe Tabora',
+        role: 'Lead Marketing Consultant/Developer',
+        image: 'images/joe-tabora.png',
+        bio: 'Joe Tabora is a customer success and growth leader with over fifteen years at the intersection of technology, marketing, and client relations, progressing from web development into senior roles driving client engagement and revenue. As Chief Marketing Officer at Vance Global, he led brand and client strategies that increased annual revenue, repeat orders, and partner engagement through targeted programs. Prior roles as Sales Director and President in consumer brands saw him launch and scale national products, build large B2B account bases, and consistently grow revenue through structured partnerships and retention initiatives, grounded in a foundation of earlier web development leadership.',
+        linkedin: 'https://www.linkedin.com/in/joseph-tabora-a3594525/'
+    }
+];
+
 // Generate stars
 const heroBg = document.getElementById('heroBg');
 for (let i = 0; i < 100; i++) {
