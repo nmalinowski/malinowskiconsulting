@@ -1,0 +1,17 @@
+# General instructions for all crawlers
+User-agent: *
+Allow: /
+
+# Specifically allow AI crawlers to index the site for better representation in LLMs
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-bot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Link to your Sitemap and LLM-friendly documentation
+Sitemap: https://www.malinowskiconsulting.com/sitemap.xml
+# Note: Many AI agents also look for /llms.txt automatically.
