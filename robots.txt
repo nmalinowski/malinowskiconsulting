@@ -1,0 +1,17 @@
+# General instructions for all crawlers
+User-agent: *
+Allow: /
+Disallow: /scripts/
+Disallow: /styles/
+
+# Specifically allow AI crawlers to index the site for better representation in LLMs
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-bot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://www.malinowskiconsulting.com/sitemap.xml
