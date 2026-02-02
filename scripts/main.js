@@ -42,7 +42,7 @@ const portfolioData = [
 const teamData = [
     {
         name: 'Nathan Malinowski',
-        role: 'Lead Technical Consultant/Lead Developer',
+        role: 'Principal, Strategy and AI Advisory',
         image: 'images/nathan-malinowski.webp',
         bio: 'Nathan Malinowski is a HealthTech engineering leader and entrepreneur who manages software development teams building AI‑enabled radiology workflow and imaging platforms used by thousands of radiologists across the U.S. His background spans full‑stack engineering in .NET, Go, Node.js, and cloud‑native architectures, plus earlier experience in cardiology PACS/VNA support, giving him deep expertise in DICOM, HL7, and regulated healthcare environments. He also runs an AI consulting practice for SMBs and co‑founded a direct‑to‑consumer supplement brand, combining technical leadership with product, compliance, and P&L ownership experience.',
         linkedin: 'https://www.linkedin.com/in/nathanielmalinowski/',
@@ -53,7 +53,7 @@ const teamData = [
     },
     {
         name: 'Alexis Malinowski',
-        role: 'Lead Conversion, Creative & QA Consultant',
+        role: 'Principal, Conversion & Regulatory Risk Advisory',
         image: 'images/alexis-malinowski.webp',
         bio: 'Alexis Malinowski is an ISTQB‑certified Software QA Engineer with a BS in Software Development, focused on manual testing, test case design, and defect tracking, and aiming to grow further into automation and agile testing practices. She previously spent nearly a decade as a Training Resource Coordinator, where she scheduled instructors, maintained corporate and client websites, supported customers, and managed learning platforms and SharePoint, building strong organizational, communication, and technical support skills. Earlier administrative roles reinforced her strengths in documentation, coordination, and attention to detail.',
         linkedin: 'https://www.linkedin.com/in/alexismalinowski/'
