@@ -1,29 +1,35 @@
 # Malinowski Consulting
 
-Digital Transformation and AI Solutions Consultancy based in League City, TX.
+> "Intelligence Meets Compliance"
 
-## Summary
-A family-owned consulting firm providing AI strategy, custom software development, system integration, and eCommerce solutions for SMBs.
+Malinowski Consulting is a specialized AI strategic advisory firm dedicated to the healthcare and regulated industries. We provide high-level strategy, governance, and technology selection guidance without implementation overhead.
 
-## Services
-- AI Strategy Development: ROI-focused roadmaps and pilot designs.
-- Custom AI Solutions: NLP, automation, and intelligent search systems.
-- Custom Software: Bespoke web applications and platforms.
-- System Integration: Workflow automation across existing toolsets.
-- Digital Marketing & SEO: Data-driven organic growth.
+## Founder & Leadership
+**Nathan Malinowski**, Principal Strategy and AI Advisory
+- 10+ years in HealthTech engineering (DICOM, HL7, FHIR, Cloud-Native)
+- Focus: Bridging the gap between clinical workflows and cutting-edge AI.
 
-## Key Projects
-- QuikTriage AI: Healthcare chatbot and symptom checker.
-- SE Masonry Repair: Full digital redesign and SEO.
-- EGO Canna: Full-featured eCommerce platform.
+## Core Services
+1. **Strategic Planning**: Assessing AI readiness and aligning initiatives with business/clinical objectives.
+2. **Technology Selection & Integration**: Advising on HIPAA/SOC2 compliant architectures and vendor selection.
+3. **Governance & Ethics**: Establishing frameworks for responsible AI adoption and bias mitigation.
+4. **Change Management**: Guiding organizational transformation and cultural alignment.
+5. **Performance & Optimization**: Defining KPIs and providing ongoing consultation for long-term value.
 
-## Contact
-- Location: League City, TX
-- Phone: 262-613-8904
-- Web: https://www.malinowskiconsulting.com
+## Industry Focus
+- Healthcare Providers & Networks
+- HealthTech & MedTech
+- Regulated Enterprise SaaS
+- Biotechnology
 
-# Malinowski Consulting - AI & Legal
-- Main Website: https://www.malinowskiconsulting.com
-- Privacy Policy: https://www.malinowskiconsulting.com/privacy.html
-- Terms of Service: https://www.malinowskiconsulting.com/terms.html
-- Contact: 262-613-8904
+## Key Differentiators
+- **Pure Advisory**: Unbiased guidance with no incentive to upsell implementation hours.
+- **Healthcare Deep Dive**: Founder-led expertise in HL7, FHIR, DICOM, and clinical workflows.
+- **Compliance First**: Architecture reviews prioritizing HIPAA, FDA, and SOC2 requirements.
+
+## Contact & Links
+- **Website**: https://www.malinowskiconsulting.com
+- **Privacy Policy**: https://www.malinowskiconsulting.com/privacy.html
+- **Terms of Service**: https://www.malinowskiconsulting.com/terms.html
+- **LinkedIn**: https://www.linkedin.com/in/nathanielmalinowski/
+- **GitHub**: https://github.com/nmalinowski

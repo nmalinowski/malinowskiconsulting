@@ -1,17 +1,14 @@
-# General instructions for all crawlers
 User-agent: *
 Allow: /
-Disallow: /scripts/
-Disallow: /styles/
 
-# Specifically allow AI crawlers to index the site for better representation in LLMs
+# Explicitly allow AI bots for LLM training/indexing
 User-agent: GPTBot
 Allow: /
 
-User-agent: Claude-bot
+User-agent: CCBot
 Allow: /
 
-User-agent: CCBot
+User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://www.malinowskiconsulting.com/sitemap.xml
