@@ -225,7 +225,7 @@ function initNeuralBackground() {
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             // Use getComputedStyle to respect dark/light mode
             const style = getComputedStyle(document.body);
-            ctx.fillStyle = style.getPropertyValue('--primary') || 'rgba(99, 102, 241, 0.5)';
+            ctx.fillStyle = style.getPropertyValue('--primary') || 'rgba(16, 185, 129, 0.5)';
             ctx.fill();
         }
     }
@@ -254,7 +254,7 @@ function initNeuralBackground() {
                 if (distance < connectionDistance) {
                     ctx.beginPath();
                     const style = getComputedStyle(document.body);
-                    const primary = style.getPropertyValue('--primary') || '#6366f1';
+                    const primary = style.getPropertyValue('--primary') || '#10b981';
                     
                     // Convert hex to rgb for opacity handling if needed, or just use simple opacity
                     ctx.strokeStyle = primary; 

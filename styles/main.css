@@ -2,10 +2,10 @@
     --bg-dark: #0a0e17;
     --bg-card: rgba(255, 255, 255, 0.05);
     --bg-card-hover: rgba(255, 255, 255, 0.08);
-    --primary: #4f46e5;
-    --primary-glow: #6366f1;
+    --primary: #059669; /* Emerald 600 */
+    --primary-glow: #10b981; /* Emerald 500 */
     --secondary: #0ea5e9;
-    --accent: #f43f5e;
+    --accent: #34d399; /* Emerald 400/Seafoam */
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
     --border-glass: rgba(255, 255, 255, 0.1);
@@ -52,8 +52,8 @@
         --text-main: #0f172a;
         --text-muted: #475569;
         --border-glass: rgba(0, 0, 0, 0.08);
-        --primary: #4f46e5;
-        --primary-glow: #4f46e5; /* Less glow on light */
+        --primary: #059669;
+        --primary-glow: #059669; /* Less glow on light */
     }
 }
 
@@ -193,10 +193,10 @@ canvas#neural-bg {
 
 .glass-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(99, 102, 241, 0.3);
+    border-color: rgba(16, 185, 129, 0.3);
     /* Smoother, multi-layered shadow */
     box-shadow: 
-        0 10px 40px -10px rgba(79, 70, 229, 0.2),
+        0 10px 40px -10px rgba(5, 150, 105, 0.2),
         inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
 }
 
@@ -522,7 +522,7 @@ canvas#neural-bg {
 .inline-nav:hover {
     background: rgba(255, 255, 255, 0.05);
     border-color: var(--primary-glow);
-    box-shadow: 0 0 20px rgba(79, 70, 229, 0.1);
+    box-shadow: 0 0 20px rgba(5, 150, 105, 0.1);
 }
 
 .inline-nav a {
@@ -546,7 +546,7 @@ canvas#neural-bg {
 .inline-header {
     padding: 2rem 0;
     border-bottom: 1px solid var(--border-glass);
-    background: radial-gradient(circle at 50% 0%, rgba(79, 70, 229, 0.05), transparent 70%);
+    background: radial-gradient(circle at 50% 0%, rgba(5, 150, 105, 0.05), transparent 70%);
 }
 
 .inline-header .nav-container {
@@ -585,8 +585,8 @@ canvas#neural-bg {
 .badge {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background: rgba(99, 102, 241, 0.1);
-    border: 1px solid rgba(99, 102, 241, 0.3);
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
     border-radius: 50px;
     color: var(--primary-glow);
     font-size: 0.9rem;
@@ -618,10 +618,7 @@ h1 {
 }
 
 .hero-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-}
+    display: flex; gap: 1rem; justify-content: center; }
 
 .btn {
     padding: 1rem 2rem;
@@ -634,7 +631,7 @@ h1 {
 .btn-primary {
     background: var(--primary);
     color: white;
-    box-shadow: 0 4px 20px rgba(79, 70, 229, 0.4);
+    box-shadow: 0 4px 20px rgba(5, 150, 105, 0.4);
 }
 
 .btn-primary:hover {
@@ -973,10 +970,10 @@ section {
     transform: scale(1.05);
 }
 
-.gradient-1 { background: linear-gradient(45deg, #4f46e5, #ec4899); }
+.gradient-1 { background: linear-gradient(45deg, #059669, #34d399); }
 .gradient-2 { background: linear-gradient(45deg, #0ea5e9, #10b981); }
-.gradient-3 { background: linear-gradient(45deg, #10b981, #f43f5e); }
-.gradient-compliance { background: linear-gradient(45deg, #22c55e, #3b82f6); }
+.gradient-3 { background: linear-gradient(45deg, #10b981, #059669); }
+.gradient-compliance { background: linear-gradient(45deg, #22c55e, #10b981); }
 
 .project-info h3 {
     font-size: 2rem;
@@ -1121,7 +1118,7 @@ section {
 .form-select:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.3); /* Accessible focus ring replacement */
+    box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.3); /* Accessible focus ring replacement */
 }
 
 /* Modern Select Styling */
@@ -1238,8 +1235,8 @@ footer {
     text-decoration: none;
     font-weight: 700;
     font-size: 1.1rem;
-    box-shadow: 0 0 0 0 rgba(118, 75, 162, 0.7);
-    animation: pulse-purple 2s infinite;
+    box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.7);
+    animation: pulse-emerald 2s infinite;
     transition: transform 0.3s;
 }
 
@@ -1252,18 +1249,18 @@ footer {
     font-size: 1.4rem;
 }
 
-@keyframes pulse-purple {
+@keyframes pulse-emerald {
     0% {
         transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(118, 75, 162, 0.7);
+        box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.7);
     }
     70% {
         transform: scale(1);
-        box-shadow: 0 0 0 10px rgba(118, 75, 162, 0);
+        box-shadow: 0 0 0 10px rgba(5, 150, 105, 0);
     }
     100% {
         transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(118, 75, 162, 0);
+        box-shadow: 0 0 0 0 rgba(5, 150, 105, 0);
     }
 }
 
@@ -1282,13 +1279,13 @@ footer {
     margin-bottom: 0.2rem;
     transition: transform 0.3s ease, filter 0.3s ease;
     /* Slight glow behind the icon */
-    filter: drop-shadow(0 0 4px rgba(99, 102, 241, 0.5));
+    filter: drop-shadow(0 0 4px rgba(16, 185, 129, 0.5));
 }
 
 .texas-icon:hover {
     transform: scale(1.2) rotate(5deg);
     /* Intensify glow on hover */
-    filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.8));
+    filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.8));
 }
 
 @keyframes pulse-heart {
