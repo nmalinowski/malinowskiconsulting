@@ -1,0 +1,33 @@
+/* Site-wide SDLC constellation — fixed backdrop, behind content */
+#site-constellation{
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+  border: 0;
+  background:
+    radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--color-border-strong) 22%, transparent) 1px, transparent 0) 0 0 / 22px 22px,
+    linear-gradient(to right, transparent 0 21px, color-mix(in srgb, var(--color-border) 32%, transparent) 21px 22px) 0 0 / 22px 22px,
+    linear-gradient(to bottom, transparent 0 21px, color-mix(in srgb, var(--color-border) 22%, transparent) 21px 22px) 0 0 / 22px 22px;
+  opacity: 0.55;
+  transition: opacity 320ms var(--motion-ease, ease);
+}
+#site-constellation.is-hidden{ opacity: 0 !important; }
+@media (prefers-reduced-motion: reduce){
+  #site-constellation, #site-constellation.is-hidden{ transition: none !important; }
+}
+#site-constellation[data-reduced-motion="true"]{ display:none; }
+@media (prefers-reduced-motion: reduce){
+  #site-constellation{ display:none !important; }
+}
+:root[data-theme="dark"] #site-constellation{ opacity:0.38; }
+/* ensure content sits above the fixed backdrop */
+body{ position: relative; }
+.site-nav, main, .site-footer{ position: relative; z-index: 1; }
+/* keep hero readable over the backdrop — let constellation peek through faintly */
+.hero{ background: color-mix(in srgb, var(--color-surface) 88%, transparent); backdrop-filter: blur(0.5px); }
+:root[data-theme="dark"] .hero{ background: color-mix(in srgb, var(--color-surface) 92%, transparent); }

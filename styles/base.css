@@ -1,0 +1,34 @@
+/* Malinowski Consulting — Base Styles (U1-Foundation) */
+/* BR3.1 skip utilities | BR3.2 focus-visible | BR3.3 reduced-motion guard | BR1.3 tokens only */
+
+/* Modern reset */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; line-height: var(--font-line-height-normal); scroll-behavior: smooth; }
+body { min-height: 100vh; font-family: var(--font-family-sans); font-size: var(--font-size-base); line-height: var(--font-line-height-normal); color: var(--color-fg); background-color: var(--color-bg); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+input, button, textarea, select { font: inherit; }
+p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
+h1, h2, h3 { line-height: var(--font-line-height-tight); font-weight: var(--font-weight-bold); }
+h1 { font-size: var(--font-size-3xl); }
+h2 { font-size: var(--font-size-2xl); }
+h3 { font-size: var(--font-size-xl); }
+code, kbd, pre, samp { font-family: var(--font-family-mono); font-size: var(--font-size-sm); }
+
+/* Links — no underline by default, underline on hover (BR1.3 token) */
+a { color: var(--color-accent); text-decoration: none; }
+a:hover { color: var(--color-accent-hover); text-decoration: underline; text-underline-offset: 2px; }
+a:visited { color: var(--color-accent); }
+
+/* :focus-visible — 2px ring with --color-focus, ≥3:1 contrast (BR3.2 / NFR-2.3) */
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; border-radius: 2px; }
+:focus:not(:focus-visible) { outline: none; }
+
+/* Visually hidden utilities (BR3.1 / BR5.5) */
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.visually-hidden--focusable:focus, .visually-hidden--focusable:focus-visible { position: static; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; white-space: normal; }
+
+/* Reduced-motion global guard (BR3.3 / NFR-2.4) — instant transitions when user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}

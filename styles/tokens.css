@@ -1,0 +1,101 @@
+/* Malinowski Consulting — Design Tokens (U1-Foundation) */
+/* BR1.1 complete catalogue | BR1.2 --<category>-<name> | BR1.4 :root light | BR1.5 [data-theme=dark] */
+:root {
+  /* --color-* — light mode (Apple-HIG aligned, WCAG AA ≥4.5:1 text/bg) */
+  --color-bg: #ffffff;
+  --color-fg: #0d1117;
+  --color-muted: #57606a;
+  --color-accent: #0550ae;
+  --color-accent-hover: #033d8b;
+  --color-surface: #f6f8fa;
+  --color-surface-raised: #ffffff;
+  --color-border: #d0d7de;
+  --color-border-strong: #afb8c1;
+  --color-focus: #0969da;
+  --color-danger: #cf222e;
+  --color-success: #1a7f37;
+  --color-hero-glass: rgba(255, 255, 255, 0.55);
+  --color-hero-glass-border: rgba(208, 215, 222, 0.6);
+
+  /* --font-* */
+  --font-family-sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-family-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-line-height-tight: 1.25;
+  --font-line-height-normal: 1.5;
+  --font-line-height-relaxed: 1.7;
+
+  /* --space-* 4px base */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* --radius-* */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+
+  /* --shadow-* */
+  --shadow-sm: 0 1px 2px rgba(13, 17, 23, 0.08), 0 1px 3px rgba(13, 17, 23, 0.06);
+  --shadow-md: 0 4px 12px rgba(13, 17, 23, 0.1), 0 1px 3px rgba(13, 17, 23, 0.08);
+  --shadow-lg: 0 12px 28px rgba(13, 17, 23, 0.14), 0 4px 12px rgba(13, 17, 23, 0.08);
+
+  /* --motion-* */
+  --motion-fast: 120ms;
+  --motion-base: 200ms;
+  --motion-slow: 320ms;
+  --motion-ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* --z-* */
+  --z-canvas: 0;
+  --z-content: 1;
+  --z-hero-logo: 2;
+  --z-nav: 3;
+  --z-modal: 10;
+
+  /* --bp-* (reference; use literal px in @media) */
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #0d1117;
+  --color-fg: #f0f6fc;
+  --color-muted: #8b949e;
+  --color-accent: #58a6ff;
+  --color-accent-hover: #79c0ff;
+  --color-surface: #161b22;
+  --color-surface-raised: #21262d;
+  --color-border: #30363d;
+  --color-border-strong: #484f58;
+  --color-focus: #58a6ff;
+  --color-danger: #f85149;
+  --color-success: #3fb950;
+  --color-hero-glass: rgba(22, 27, 34, 0.75);
+  --color-hero-glass-border: rgba(48, 54, 61, 0.7);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.5);
+}

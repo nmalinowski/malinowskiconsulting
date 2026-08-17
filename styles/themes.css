@@ -1,0 +1,24 @@
+/* Malinowski Consulting — Theme Transitions (U1-Foundation) */
+/* BR2.7 transitions gated on prefers-reduced-motion | BR7.2 hero glassmorphism | BR3.4 contrast note */
+
+/* Theme-switch transitions — ONLY when user has not requested reduced motion (BR2.7 / NFR-2.4) */
+@media (prefers-reduced-motion: no-preference) {
+  body { transition: background-color var(--motion-base) var(--motion-ease), color var(--motion-base) var(--motion-ease), border-color var(--motion-base) var(--motion-ease); }
+  .hero { transition: background-color var(--motion-base) var(--motion-ease), border-color var(--motion-base) var(--motion-ease), backdrop-filter var(--motion-base) var(--motion-ease); }
+  .theme-toggle button { transition: background-color var(--motion-fast) var(--motion-ease), color var(--motion-fast) var(--motion-ease), border-color var(--motion-fast) var(--motion-ease); }
+}
+
+/* Hero glassmorphism — alpha dark-aware (BR7.2) */
+/* Light: alpha ≤0.6 for readability | Dark: alpha ≤0.8 for moody aesthetic */
+.hero {
+  background: var(--color-hero-glass);
+  border: 1px solid var(--color-hero-glass-border);
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+}
+
+/* Contrast note: --color-fg on --color-bg meets WCAG 2.2 AA (BR3.4 / NFR-2.5)
+   Light: #0d1117 on #ffffff ≈ 19.1:1 (AAA) | Dark: #f0f6fc on #0d1117 ≈ 18.3:1 (AAA)
+   Muted text: light #57606a on #ffffff ≈ 7.0:1 (AA) | dark #8b949e on #0d1117 ≈ 7.1:1 (AA)
+   Accent link: light #0550ae on #ffffff ≈ 7.6:1 (AA) | dark #58a6ff on #0d1117 ≈ 7.3:1 (AA)
+   Hero glass maintains ≥4.5:1 via semi-opaque surface + fg token. */

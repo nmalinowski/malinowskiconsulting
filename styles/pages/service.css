@@ -1,0 +1,154 @@
+/* Malinowski Consulting — Service Page Styles (U3-Service-Pages) */
+/* BR12.4 BR14.1 BR15.1 BR15.3 | TSD-U3-2/7 | tokens-only (U1) | --bp-md 768px */
+
+/* Service hero — extends U1 .hero; static, no bubble canvas (BR12.4) */
+/* Compact dossier header — not a full viewport hero */
+.service-hero {
+  position: relative;
+  min-height: auto;
+  padding: var(--space-8) var(--space-6);
+  gap: var(--space-3);
+  text-align: left;
+  place-items: start;
+  margin-bottom: var(--space-8);
+}
+.service-hero .hero__logo{ display: none; }
+.service-hero h1{
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.45rem, 3vw, 1.85rem);
+  line-height: 1.2;
+  letter-spacing: -.015em;
+  max-width: 28ch;
+}
+.service-hero .hero__subhead{
+  font-size: var(--font-size-base);
+  max-width: 56ch;
+}
+.service-hero .hero__cta{ margin-top: var(--space-2); }
+@media(max-width: 768px){
+  .service-hero{ padding: var(--space-6) var(--space-5); }
+}
+
+/* Section wrapper — centered, max 64rem */
+.service-section {
+  padding: var(--space-8) var(--space-6);
+  max-width: 64rem;
+  margin: 0 auto;
+}
+.service-section > h2 {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--font-line-height-tight);
+  margin-bottom: var(--space-4);
+}
+.service-section > p {
+  color: var(--color-muted);
+  line-height: var(--font-line-height-relaxed);
+  max-width: 60ch;
+}
+.service-section ol,
+.service-section ul {
+  padding-left: var(--space-6);
+  color: var(--color-muted);
+  line-height: var(--font-line-height-relaxed);
+}
+.service-section li + li { margin-top: var(--space-2); }
+
+/* Pricing block — range-hint (BR12.2) */
+.pricing-block {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-raised);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  gap: var(--space-4);
+}
+.pricing-block strong { color: var(--color-fg); }
+.pricing-block p { margin: 0; }
+
+/* Track grid — BR14.1 */
+.track-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+@media (min-width: 768px) {
+  .track-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 767px) {
+  .track-grid { grid-template-columns: 1fr; }
+}
+
+/* Track card */
+.track-card {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-raised);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+}
+.track-card > h3 {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--font-line-height-tight);
+  color: var(--color-fg);
+}
+.track-card > p { color: var(--color-muted); margin: 0; }
+.track-card ul {
+  padding-left: var(--space-6);
+  margin: 0;
+  color: var(--color-muted);
+  line-height: var(--font-line-height-normal);
+}
+.track-card .button { margin-top: var(--space-2); }
+
+/* FAQ accordion — details/summary */
+.service-section details {
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-2) 0;
+}
+.service-section details:first-of-type { border-top: 1px solid var(--color-border); }
+.service-section details > summary {
+  cursor: pointer;
+  font-weight: var(--font-weight-semibold);
+  padding: var(--space-2) 0;
+  color: var(--color-fg);
+  list-style: none;
+}
+.service-section details > summary::-webkit-details-marker { display: none; }
+.service-section details[open] > summary { color: var(--color-accent); }
+.service-section details > p {
+  padding: var(--space-2) 0 var(--space-4);
+  color: var(--color-muted);
+}
+
+/* Reduced-motion gates — BR15.3 TSD-U3-7 */
+@media (prefers-reduced-motion: no-preference) {
+  .track-card { transition: box-shadow var(--motion-base) var(--motion-ease), border-color var(--motion-base) var(--motion-ease); }
+  .track-card:hover { box-shadow: var(--shadow-md); border-color: var(--color-border-strong); }
+  .service-section details > summary { transition: color 150ms ease; }
+  .pricing-block { transition: box-shadow var(--motion-base) var(--motion-ease); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .track-card,
+  .pricing-block,
+  .service-section details > summary {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Focus-visible — BR15.1 inheritance (2px solid --color-focus, offset 2px) */
+.service-section a:focus-visible,
+.track-card a:focus-visible,
+.pricing-block a:focus-visible,
+.service-hero a:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
