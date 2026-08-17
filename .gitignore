@@ -2,3 +2,8 @@
 *CLAUDE.md
 *AGENTS.md
 *copilot-instructions.md
+aidlc*
+.claude/tools/data/
+.claude/tools/
+settings.json
+tools/

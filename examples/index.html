@@ -31,7 +31,8 @@
 <canvas id="site-constellation" aria-hidden="true"></canvas>
 <a href="#main-content" class="visually-hidden visually-hidden--focusable skip-link">Skip to main content</a>
 <nav class="site-nav" aria-label="Primary">
-<ul>
+<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation"><span class="nav-toggle__bars" aria-hidden="true"><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span></span></button>
+<ul id="primary-nav">
 <li><a href="/">Home</a></li>
 <li><a href="/vibe-code-cleanup/">Vibe Code Clean-up</a></li>
 <li><a href="/ai-sdlc-training/">AI SDLC Training</a></li>
@@ -48,7 +49,7 @@
 <section class="hero examples-hero">
 <div class="examples-hero__kicker">Strategy by industry, not by hype</div>
 <h1>Pick the right bet, not the hyped one</h1>
-<p class="hero__subhead">Twelve workflows across healthcare, finance, and other regulated work — each with an honest AI fit, a payback range, and the cheaper programmatic alternative when automation wins.</p>
+<p class="hero__subhead">Twelve workflows across healthcare, finance, and other regulated work, each with an honest AI fit, a payback range, and the cheaper programmatic alternative when automation wins.</p>
 <div class="examples-stats" aria-live="polite">
 <div><strong>12</strong> workflows</div><span>·</span><div><strong>3</strong> industries</div><span>·</span><div id="examples-count"><strong>12</strong> showing</div>
 </div>
@@ -81,7 +82,7 @@
 
 <section class="service-section" id="contact" style="max-width:64rem;margin:0 auto;padding:var(--space-12) var(--space-6);border-top:1px solid var(--color-border);">
 <h2 style="font-family:Georgia,serif;font-size:1.35rem;">Want a strategy session for your team?</h2>
-<p style="color:var(--color-muted);max-width:56ch;line-height:1.65;margin-top:8px;">Tell me your stack, constraints, and the workflows you’re weighing. I’ll map the fit honestly — including when the programmatic route is cheaper.</p>
+<p style="color:var(--color-muted);max-width:56ch;line-height:1.65;margin-top:8px;">Tell me your stack, constraints, and the workflows you’re weighing. I’ll map the fit honestly, including when the programmatic route is cheaper.</p>
 <a class="button button--primary" href="/vibe-code-cleanup/#contact" style="margin-top:16px;">Start a conversation</a>
 </section>
 </main>
@@ -104,6 +105,7 @@
 <div id="strategy-tooltip" class="strategy-tooltip" role="tooltip" aria-hidden="true"></div>
 <script type="module" src="/scripts/components/examples-board.js"></script>
 <script type="module">import{setTheme}from'/scripts/theme.js';for(const b of document.querySelectorAll('.theme-toggle [data-option]'))b.addEventListener('click',()=>setTheme(b.dataset.option));</script>
+<script type="module" src="/scripts/components/nav-toggle.js"></script>
 <script type="module" src="/scripts/components/site-constellation.js"></script>
 </body>
 </html>

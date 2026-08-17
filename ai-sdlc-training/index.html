@@ -32,7 +32,8 @@
 <canvas id="site-constellation" aria-hidden="true"></canvas>
 <a href="#main-content" class="visually-hidden visually-hidden--focusable skip-link">Skip to main content</a>
 <nav class="site-nav" aria-label="Primary">
-<ul>
+<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation"><span class="nav-toggle__bars" aria-hidden="true"><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span></span></button>
+<ul id="primary-nav">
 <li><a href="/">Home</a></li>
 <li><a href="/vibe-code-cleanup/">Vibe Code Clean-up</a></li>
 <li><a href="/ai-sdlc-training/" aria-current="page">AI SDLC Training</a></li>
@@ -49,7 +50,7 @@
 <section class="hero service-hero">
 <a href="/" class="hero__logo" aria-label="Malinowski Consulting — home"><img src="/images/malinowskiconsulting-logo.webp" alt="Malinowski Consulting" width="240" height="60" loading="eager"></a>
 <h1>AI SDLC training that engineers actually use</h1>
-<p class="hero__subhead">Two tracks — one for individuals, one for teams and departments. Live virtual workshops + hands-on labs. Optional in-person component. I'll meet you where your team is.</p>
+<p class="hero__subhead">Two tracks, one for individuals, one for teams and departments. Live virtual workshops + hands-on labs. Optional in-person component. I'll meet you where your team is.</p>
 <p class="hero__cta"><a href="#contact" class="button button--primary" data-cta-primary>Start a conversation</a></p>
 </section>
 
@@ -66,9 +67,9 @@
 <section class="service-section" id="process">
 <h2>How it works</h2>
 <ol>
-<li><strong>Discovery</strong> — I learn your stack, workflow, and compliance constraints so the training maps to your reality.</li>
-<li><strong>Hands-on sessions</strong> — live virtual workshops plus labs you can run again. Self-paced modules for individuals; cohort format for teams.</li>
-<li><strong>Enablement</strong> — templates, checklists, and follow-up review so the habits stick after the course ends.</li>
+<li><strong>Discovery</strong>, I learn your stack, workflow, and compliance constraints so the training maps to your reality.</li>
+<li><strong>Hands-on sessions</strong>, live virtual workshops plus labs you can run again. Self-paced modules for individuals; cohort format for teams.</li>
+<li><strong>Enablement</strong>, templates, checklists, and follow-up review so the habits stick after the course ends.</li>
 </ol>
 </section>
 
@@ -101,7 +102,7 @@
 <section class="service-section" id="curriculum">
 <h2>Curriculum highlights</h2>
 <ul>
-<li>AI-assisted requirements, design, and code review — with human sign-off at every boundary</li>
+<li>AI-assisted requirements, design, and code review, with human sign-off at every boundary</li>
 <li>Test design and evaluation for AI-generated code</li>
 <li>Governance: audit trails, model choice, and data handling for regulated work</li>
 <li>Lab: take a feature from your backlog through the full AI-assisted SDLC</li>
@@ -112,7 +113,7 @@
 <h2>Pricing</h2>
 <div class="pricing-block">
 <p><strong>Tracks start at $1,100 per participant.</strong></p>
-<p>Final price after discovery — class size and scope drive the quote. Individuals and teams are priced separately.</p>
+<p>Final price after discovery, class size and scope drive the quote. Individuals and teams are priced separately.</p>
 </div>
 </section>
 
@@ -212,6 +213,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 </script>
 <script type="module">import{setTheme}from'/scripts/theme.js';for(const b of document.querySelectorAll('.theme-toggle [data-option]'))b.addEventListener('click',()=>setTheme(b.dataset.option));</script>
+<script type="module" src="/scripts/components/nav-toggle.js"></script>
 <script type="module" src="/scripts/components/site-constellation.js"></script>
 <script src="https://web3forms.com/client/script.js" async defer></script>
 </body>

@@ -30,7 +30,8 @@
 <canvas id="site-constellation" aria-hidden="true"></canvas>
 <a href="#main-content" class="skip-link">Skip to main content</a>
 <nav class="site-nav" aria-label="Primary">
-<ul>
+<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation"><span class="nav-toggle__bars" aria-hidden="true"><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span></span></button>
+<ul id="primary-nav">
 <li><a href="/">Home</a></li>
 <li><a href="/vibe-code-cleanup/">Vibe Code Clean-up</a></li>
 <li><a href="/ai-sdlc-training/">AI SDLC Training</a></li>
@@ -47,7 +48,7 @@
 <section class="hero service-hero">
 <a href="/" class="hero__logo" aria-label="Malinowski Consulting — home"><img src="/images/malinowskiconsulting-logo.webp" alt="Malinowski Consulting" width="240" height="60" loading="eager"></a>
 <h1>Terms of Service</h1>
-<p class="hero__subhead"><em>Effective Date: January 17, 2026</em> — Terms governing the use of malinowskiconsulting.com and our advisory services.</p>
+<p class="hero__subhead"><em>Effective Date: January 17, 2026</em>, Terms governing the use of malinowskiconsulting.com and our advisory services.</p>
 </section>
 
 <section class="service-section">
@@ -91,6 +92,7 @@
 <div class="footer-meta"> Made with <span class="heart">❤️</span> in <img src="/images/texas.svg" alt="Texas" class="texas-icon" width="24" height="24"> </div>
 </footer>
 <script type="module">import{setTheme}from'/scripts/theme.js';for(const b of document.querySelectorAll('.theme-toggle [data-option]'))b.addEventListener('click',()=>setTheme(b.dataset.option));</script>
+<script type="module" src="/scripts/components/nav-toggle.js"></script>
 <script type="module" src="/scripts/components/site-constellation.js"></script>
 </body>
 </html>

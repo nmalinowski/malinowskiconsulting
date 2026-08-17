@@ -32,7 +32,8 @@
 <canvas id="site-constellation" aria-hidden="true"></canvas>
 <a href="#main-content" class="visually-hidden visually-hidden--focusable skip-link">Skip to main content</a>
 <nav class="site-nav" aria-label="Primary">
-<ul>
+<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation"><span class="nav-toggle__bars" aria-hidden="true"><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span></span></button>
+<ul id="primary-nav">
 <li><a href="/">Home</a></li>
 <li><a href="/vibe-code-cleanup/" aria-current="page">Vibe Code Clean-up</a></li>
 <li><a href="/ai-sdlc-training/">AI SDLC Training</a></li>
@@ -49,13 +50,13 @@
 <section class="hero service-hero">
 <a href="/" class="hero__logo" aria-label="Malinowski Consulting — home"><img src="/images/malinowskiconsulting-logo.webp" alt="Malinowski Consulting" width="240" height="60" loading="eager"></a>
 <h1>Audit-first fixes for vibe-coded projects</h1>
-<p class="hero__subhead">I'll manually review your repo, send you a fixed-price quote, and only then we decide what to ship together. No tiered packages — just a clear audit and a plan you can act on.</p>
+<p class="hero__subhead">I'll manually review your repo, send you a fixed-price quote, and only then we decide what to ship together. No tiered packages, just a clear audit and a plan you can act on.</p>
 <p class="hero__cta"><a href="#contact" class="button button--primary" data-cta-primary>Start a conversation</a></p>
 </section>
 
 <section class="service-section" id="who">
 <h2>Who this is for</h2>
-<p>If your team shipped fast with AI tools and now the codebase feels fragile — flaky tests, hidden shortcuts, unclear data handling — I'll help you get clarity before you invest more.</p>
+<p>If your team shipped fast with AI tools and now the codebase feels fragile, flaky tests, hidden shortcuts, unclear data handling, I'll help you get clarity before you invest more.</p>
 <ul>
 <li>Founders and product teams who built an MVP with AI assistance</li>
 <li>Engineering leads inheriting a vibe-coded repo that needs hardening</li>
@@ -66,15 +67,15 @@
 <section class="service-section" id="process">
 <h2>The audit process</h2>
 <ol>
-<li><strong>You share context</strong> — repo access, goals, and constraints. I sign an NDA if needed and timebox the read-through.</li>
-<li><strong>I audit manually</strong> — architecture, security, data flow, and maintainability. I note what's solid, what's risky, and what to fix first.</li>
-<li><strong>You get a fixed-price quote</strong> — clear scope, timeline, and options. We decide together what to ship; you keep the audit either way.</li>
+<li><strong>You share context</strong>, repo access, goals, and constraints. I sign an NDA if needed and timebox the read-through.</li>
+<li><strong>I audit manually</strong>, architecture, security, data flow, and maintainability. I note what's solid, what's risky, and what to fix first.</li>
+<li><strong>You get a fixed-price quote</strong>, clear scope, timeline, and options. We decide together what to ship; you keep the audit either way.</li>
 </ol>
 </section>
 
 <section class="service-section" id="what-clean-means">
 <h2>What “clean” looks like</h2>
-<p>Clean isn't a rewrite — it's a repo your team can extend without surprises. That usually means tighter boundaries, documented decisions, and tests around the riskiest paths.</p>
+<p>Clean isn't a rewrite, it's a repo your team can extend without surprises. That usually means tighter boundaries, documented decisions, and tests around the riskiest paths.</p>
 <ul>
 <li>Reliable builds with lint, type-check, and test coverage that actually gates merges</li>
 <li>Clear module boundaries so new features don't ripple across the codebase</li>
@@ -86,7 +87,7 @@
 <h2>Pricing</h2>
 <div class="pricing-block">
 <p><strong>Audits typically start at $4,500.</strong></p>
-<p>Final price after audit. Every project gets a custom quote — the audit maps the work, then I price the clean-up as a fixed scope. No retainer required to start.</p>
+<p>Final price after audit. Every project gets a custom quote, the audit maps the work, then I price the clean-up as a fixed scope. No retainer required to start.</p>
 <p><a href="#contact" class="button button--primary">Request an audit</a></p>
 </div>
 </section>
@@ -107,7 +108,7 @@
 </details>
 <details>
 <summary>What if we want to pause after the audit?</summary>
-<p>Totally fine. The audit deliverable is yours — findings, risks, and a fixed-price plan — whether or not we continue to the clean-up.</p>
+<p>Totally fine. The audit deliverable is yours, findings, risks, and a fixed-price plan, whether or not we continue to the clean-up.</p>
 </details>
 </section>
 
@@ -178,6 +179,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 </script>
 <script type="module">import{setTheme}from'/scripts/theme.js';for(const b of document.querySelectorAll('.theme-toggle [data-option]'))b.addEventListener('click',()=>setTheme(b.dataset.option));</script>
+<script type="module" src="/scripts/components/nav-toggle.js"></script>
 <script type="module" src="/scripts/components/site-constellation.js"></script>
 <script src="https://web3forms.com/client/script.js" async defer></script>
 </body>
