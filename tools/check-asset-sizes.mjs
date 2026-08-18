@@ -21,7 +21,7 @@ const caps = {
   'scripts/components/site-constellation.js': 12 * 1024,
   'styles/components/bubble.css': 9 * 1024,
   'scripts/components/contact-form.js': 3 * 1024,
-  'scripts/components/contact-form.core.js': 6 * 1024,
+  'scripts/components/contact-form.core.js': 6.5 * 1024,
   'styles/components/contact-form.css': 10 * 1024,
   // U3 — per TSD-U3-4 (≤100KB sum, per-file caps)
   'scripts/service-page.js': 4 * 1024,

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-theme="auto">
 <head>
 <meta charset="utf-8">
@@ -16,7 +16,7 @@
 <meta name="twitter:description" content="Practical AI development training: live virtual workshops + hands-on labs for teams; self-paced modules for individuals. Optional in-person available.">
 <meta name="twitter:image" content="https://malinowskiconsulting.com/images/og-default.png">
 <meta name="theme-color" content="#0d1117">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://us.i.posthog.com https://t.malinowskiconsulting.com https://web3forms.com https://*.hcaptcha.com https://js.hcaptcha.com https://newassets.hcaptcha.com; connect-src 'self' https://us.i.posthog.com https://t.malinowskiconsulting.com https://api.web3forms.com https://*.hcaptcha.com https://api.hcaptcha.com; img-src 'self' data: https://*.hcaptcha.com https://newassets.hcaptcha.com; style-src 'self' 'unsafe-inline' https://*.hcaptcha.com https://newassets.hcaptcha.com; font-src 'self' data:; frame-src 'self' https://*.hcaptcha.com https://newassets.hcaptcha.com https://web3forms.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://us.i.posthog.com https://t.malinowskiconsulting.com https://web3forms.com https://static.cloudflareinsights.com; connect-src 'self' https://us.i.posthog.com https://t.malinowskiconsulting.com https://api.web3forms.com https://static.cloudflareinsights.com; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; frame-src 'self' https://web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com">
 <script type="module">import{bootTheme}from'/scripts/theme.js';bootTheme();</script>
 <link rel="stylesheet" href="/styles/tokens.css">
 <link rel="stylesheet" href="/styles/base.css">
@@ -41,9 +41,9 @@
 <li><a href="#contact">Contact</a></li>
 </ul>
 <div class="theme-toggle" role="group" aria-label="Theme">
-<button data-option="light" aria-pressed="false">Light</button>
-<button data-option="dark" aria-pressed="false">Dark</button>
-<button data-option="auto" aria-pressed="true">Auto</button>
+<button type="button" data-option="light" aria-pressed="false">Light</button>
+<button type="button" data-option="dark" aria-pressed="false">Dark</button>
+<button type="button" data-option="auto" aria-pressed="true">Auto</button>
 </div>
 </nav>
 <main id="main-content" tabindex="-1">
@@ -141,9 +141,9 @@
 <h2 id="contact-heading">Tell me about your project</h2>
 <p>Fill in the form below. I respond within one business day. When you pick a track, the form will be hinted via <code>?service=ai-sdlc-training&amp;track=...</code> so I know which track you're interested in.</p>
 <form data-contact-form novalidate action="https://api.web3forms.com/submit" method="POST" class="contact-form" aria-labelledby="contact-heading">
-<input type="hidden" name="access_key" value="242de28a-455b-4a89-ade9-82d5b3876782">
+<input type="hidden" name="access_key" value="c5be68cb-bd9c-482b-a5fd-133b138c1780">
 <input type="hidden" name="subject" value="New AI SDLC Training Inquiry">
-<input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
+<input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1">
 <div class="contact-form__field">
 <label for="contact-service">Service</label>
 <select id="contact-service" name="service" required aria-describedby="contact-service-err">
@@ -179,10 +179,9 @@
 <small id="contact-message-err" class="contact-form__error" aria-live="polite" data-shown="false"></small>
 </div>
 <div class="contact-form__consent">
-<label for="contact-consent"><input id="contact-consent" name="consent" type="checkbox" required aria-describedby="cf-consent-err"> I agree to the <a href="/privacy.html">privacy policy</a> and to being contacted about my request.</label>
+<label><input id="contact-consent" name="consent" type="checkbox" required aria-describedby="cf-consent-err"> I agree to the <a href="/privacy.html">privacy policy</a> and to being contacted about my request.</label>
 <small id="cf-consent-err" class="contact-form__error" aria-live="polite" data-shown="false"></small>
 </div>
-<div class="h-captcha" data-captcha="true" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
 <button type="submit" class="button button--primary">Send message</button>
 <output class="contact-form__status" data-state="idle" aria-live="polite" tabindex="-1"></output>
 </form>
@@ -205,7 +204,7 @@
 <div class="footer-meta"> Made with <span class="heart">❤️</span> in <img src="/images/texas.svg" alt="Texas" class="texas-icon" width="24" height="24"> </div>
 </footer>
 <script type="module" src="/scripts/service-page.js"></script>
-<script type="module">
+<script type="module" data-cfasync="false">
 import initContact from '/scripts/components/contact-form.js';
 document.addEventListener('DOMContentLoaded',()=>{
   const f=document.querySelector('[data-contact-form]');
@@ -215,6 +214,5 @@ document.addEventListener('DOMContentLoaded',()=>{
 <script type="module">import{setTheme}from'/scripts/theme.js';for(const b of document.querySelectorAll('.theme-toggle [data-option]'))b.addEventListener('click',()=>setTheme(b.dataset.option));</script>
 <script type="module" src="/scripts/components/nav-toggle.js"></script>
 <script type="module" src="/scripts/components/site-constellation.js"></script>
-<script src="https://web3forms.com/client/script.js" async defer></script>
 </body>
 </html>

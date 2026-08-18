@@ -10,7 +10,7 @@ html{ overflow-x: clip; }
 body { display: grid; grid-template-rows: auto 1fr auto; min-height: 100vh; overflow-x: clip; }
 
 /* Slim nav — flex inside grid (BR5.2/5.3) */
-.site-nav { position: relative; display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); max-width: 1120px; width: 100%; margin: 0 auto; padding: var(--space-4) var(--space-6); border-bottom: 1px solid var(--color-border); flex-wrap: wrap; }
+.site-nav { position: relative; z-index: var(--z-nav); display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); max-width: 1120px; width: 100%; margin: 0 auto; padding: var(--space-4) var(--space-6); border-bottom: 1px solid var(--color-border); flex-wrap: wrap; }
 .site-nav ul { display: flex; align-items: center; gap: var(--space-6); list-style: none; padding: 0; flex-wrap: wrap; }
 .site-nav a { font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); color: var(--color-fg); text-decoration: none; padding: var(--space-1) 0; border-bottom: 2px solid transparent; }
 .site-nav a:hover { color: var(--color-accent); border-bottom-color: var(--color-accent); text-decoration: none; }
@@ -192,7 +192,7 @@ main { max-width: 1120px; width: 100%; margin: 0 auto; padding: var(--space-8) v
 :root[data-theme="dark"] .page-home .home-header::before{ opacity: 0.32; }
 .page-home .home-header .site-nav{
   position: relative;
-  z-index: 1;
+  z-index: 3;
   max-width: 1120px;
   width: 100%;
   margin: 0 auto;
