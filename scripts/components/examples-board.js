@@ -35,6 +35,90 @@ const suitChips = document.getElementById('suit-chips');
 const canvas = document.getElementById('strategy-canvas');
 const tooltip = document.getElementById('strategy-tooltip');
 
+// Modal elements
+let modal = null;
+let modalBackdrop = null;
+let modalPanel = null;
+let modalClose = null;
+let lastFocused = null;
+
+function initModal(){
+  if(modal) return;
+  modal = document.createElement('div');
+  modal.className = 'workflow-modal';
+  modal.innerHTML = `
+    <div class="workflow-modal__backdrop"></div>
+    <div class="workflow-modal__panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="workflow-modal__header">
+        <div></div>
+        <button class="workflow-modal__close" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="workflow-modal__body"></div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+  modalBackdrop = modal.querySelector('.workflow-modal__backdrop');
+  modalPanel = modal.querySelector('.workflow-modal__panel');
+  modalClose = modal.querySelector('.workflow-modal__close');
+
+  modalBackdrop.addEventListener('click', closeModal);
+  modalClose.addEventListener('click', closeModal);
+  document.addEventListener('keydown', onModalKeydown);
+}
+
+function openModal(w){
+  initModal();
+  lastFocused = document.activeElement;
+
+  const indLabel = INDUSTRIES.find(x=>x.id===w.industry)?.label || w.industry;
+  const suitLabel = SUIT_LABEL[w.ai_suitability] || w.ai_suitability;
+  const mid = parsePayback(w.roi.display);
+  const pct = Math.max(8, Math.min(96, ((10-mid)/9)*100));
+
+  const body = modal.querySelector('.workflow-modal__body');
+  body.innerHTML = `
+    <span class="workflow-modal__industry" data-industry="${w.industry}"><i aria-hidden="true"></i> ${indLabel}</span>
+    <span class="workflow-modal__suit" data-suit="${w.ai_suitability}">${suitLabel}</span>
+    <h2 id="modal-title" class="workflow-modal__title">${w.title}</h2>
+    <p class="workflow-modal__summary">${w.summary}</p>
+    <div class="workflow-modal__section">
+      <div class="workflow-modal__section-title">Payback</div>
+      <div class="workflow-modal__roi">
+        <div class="workflow-modal__roi-bar"><div class="workflow-modal__roi-fill" style="width:${pct}%"></div></div>
+        <p class="workflow-modal__roi-note">${paybackLabel(w.roi.display)} — ${w.roi.note}</p>
+      </div>
+    </div>
+    <div class="workflow-modal__section workflow-modal__alternatives">
+      <div class="workflow-modal__section-title">Programmatic Alternatives</div>
+      <ul>${w.alternatives.map(a=>`<li>${a}</li>`).join('')}</ul>
+    </div>
+  `;
+
+  modal.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+  modalClose.focus();
+}
+
+function closeModal(){
+  if(!modal || !modal.classList.contains('is-open')) return;
+  modal.classList.remove('is-open');
+  document.body.style.overflow = '';
+  if(lastFocused) lastFocused.focus();
+  lastFocused = null;
+}
+
+function onModalKeydown(e){
+  if(!modal || !modal.classList.contains('is-open')) return;
+  if(e.key === 'Escape'){ closeModal(); }
+  if(e.key === 'Tab'){
+    const focusable = modalPanel.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    const first = focusable[0];
+    const last = focusable[focusable.length-1];
+    if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+  }
+}
+
 function renderChips(container, items, active, kind){
   container.textContent='';
   container.setAttribute('role','tablist');
@@ -114,14 +198,19 @@ function renderCards(){
     for(const a of w.alternatives){ const li=document.createElement('li'); li.textContent=a; ul.appendChild(li); }
     alt.appendChild(altL); alt.appendChild(ul); card.appendChild(alt);
 
-    const a=document.createElement('a'); a.className='workflow-card__anchor'; a.href=w.deepLinkHref; a.textContent='Open';
+    const a=document.createElement('a'); a.className='workflow-card__anchor'; a.href='#'; a.textContent='Open';
     a.addEventListener('click', (e)=>{
+      e.preventDefault();
       try{ window.analytics.track?.('examples_workflow_click', { workflow_id:w.id, industry:w.industry }); }catch{}
+      openModal(w);
     });
     card.appendChild(a);
     card.addEventListener('click', (e)=>{
       if(e.target.closest('a')) return;
-      location.hash=w.id;
+      openModal(w);
+    });
+    card.addEventListener('keydown', (e)=>{
+      if(e.key==='Enter'){ openModal(w); }
     });
     card.addEventListener('keydown', (e)=>{
       if(e.key==='Enter'){ location.hash=w.id; }
@@ -224,7 +313,7 @@ if(canvas){
   canvas.addEventListener('click', (e)=>{
     const rect=canvas.getBoundingClientRect();
     const p=hitTest(e.clientX-rect.left, e.clientY-rect.top);
-    if(p){ location.hash=p.w.id; const el=document.getElementById(p.w.id); if(el){ el.scrollIntoView({behavior:'smooth', block:'center'}); el.setAttribute('data-anchor-highlight',''); setTimeout(()=>el.removeAttribute('data-anchor-highlight'), 1800); } }
+    if(p){ openModal(p.w); }
   });
   let dragging=false;
   canvas.addEventListener('mousedown', ()=> dragging=true);
@@ -250,7 +339,10 @@ function handleHash(){
   const h=(location.hash||'').replace('#','');
   if(!h) return;
   if(h.startsWith('industry=')){ const v=h.split('=')[1]; if(['healthcare','finance','other'].includes(v)) state.industry=v; }
-  else if(h.startsWith('wf-')){ const el=document.getElementById(h); if(el){ el.scrollIntoView({block:'center'}); el.setAttribute('data-anchor-highlight',''); setTimeout(()=>el.removeAttribute('data-anchor-highlight'), 2000); } }
+  else if(h.startsWith('wf-')){
+    const w = WORKFLOWS.find(x=>x.id===h);
+    if(w) openModal(w);
+  }
 }
 window.addEventListener('hashchange', handleHash);
 

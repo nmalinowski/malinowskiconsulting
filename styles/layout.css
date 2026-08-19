@@ -5,6 +5,12 @@
 .skip-link { position: absolute; top: -100%; left: var(--space-4); z-index: var(--z-modal); padding: var(--space-2) var(--space-4); background: var(--color-accent); color: #fff; font-weight: var(--font-weight-semibold); font-size: var(--font-size-sm); border-radius: var(--radius-sm); text-decoration: none; }
 .skip-link:focus, .skip-link:focus-visible { top: var(--space-4); }
 
+/* Mobile nav dropdown — ensure above all content including hero */
+.site-nav ul[style*="z-index: 20"] { z-index: var(--z-modal) !important; }
+@media (max-width: 768px) {
+  .site-nav ul { z-index: var(--z-modal); }
+}
+
 /* Page-level CSS Grid (BR7.1) — body is grid: nav | main | footer */
 html{ overflow-x: clip; }
 body { display: grid; grid-template-rows: auto 1fr auto; min-height: 100vh; overflow-x: clip; }
