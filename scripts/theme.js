@@ -22,10 +22,17 @@ let _autoListener = null;
 function resolveAuto() {
   try { return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; } catch { return 'light'; }
 }
+function syncThemeColor(resolved) {
+  try {
+    const tag = document.querySelector('meta[name="theme-color"]');
+    if (tag) tag.setAttribute('content', resolved === 'dark' ? '#0e1518' : '#ffffff');
+  } catch (_) {}
+}
 function applyChoice(choice) {
   const resolved = choice === 'auto' ? resolveAuto() : choice;
   document.documentElement.setAttribute('data-theme', resolved);
   document.documentElement.setAttribute('data-theme-choice', choice);
+  syncThemeColor(resolved);
   syncToggleUi(choice);
 }
 function watchAuto(enable) {

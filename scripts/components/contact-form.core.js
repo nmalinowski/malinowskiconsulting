@@ -16,6 +16,7 @@ if(i.name)setE(i,m);return!m;}
 const F=[...f.querySelectorAll('input,textarea,select')].filter(x=>x.type!=='hidden'&&x.name!=='botcheck'&&x.name!=='website'&&x.name!=='company_url'&&x.name!=='h-captcha-response'&&x.name!=='access_key'&&x.name!=='subject');
 for(const i of F){i.addEventListener('blur',()=>{s='validating-field';vF(i);s='idle';});}
 try{const p=new URL(location.href).searchParams.get('service'),se=f.querySelector('[name=service]')||f.querySelector('[name=interest]');if(p&&se&&['vibe-code-cleanup','ai-sdlc-training','other','strategy-roadmap','compliance-audit','tech-selection','general'].includes(p))se.value=p;}catch{}
+try{const t=new URL(location.href).searchParams.get('track'),te=f.querySelector('[name=track]');if(t&&te&&['individuals','team'].includes(t))te.value=t;}catch{}
 // Native form submission (Web3Forms free tier) - JS only handles validation
 // The form's action="https://api.web3forms.com/submit" method="POST" handles submission
 function destroy(){s='idle';}

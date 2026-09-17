@@ -237,6 +237,10 @@ function apply(){
 let dpr=1; let points=[]; let hover=null;
 function drawMap(){
   if(!canvas) return;
+  const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const P = dark
+    ? {grid:'rgba(236,231,218,0.10)',label:'rgba(236,231,218,0.6)',sub:'rgba(236,231,218,0.5)',glow:'rgba(223,166,63,0.10)',health:'#2dd4bf',finance:'#a78bfa',other:'#e3b341',dim:'rgba(150,150,150,0.3)',stroke:'#0e1518',strokeDim:'rgba(236,231,218,0.5)',hover:'rgba(223,166,63,0.6)'}
+    : {grid:'rgba(23,20,14,0.10)',label:'rgba(23,20,14,0.6)',sub:'rgba(23,20,14,0.5)',glow:'rgba(154,27,30,0.07)',health:'#0a7a6a',finance:'#6b3fd6',other:'#7a5200',dim:'rgba(120,120,120,0.28)',stroke:'#ffffff',strokeDim:'rgba(255,255,255,0.6)',hover:'rgba(154,27,30,0.5)'};
   const ctx=canvas.getContext('2d');
   if(!ctx) return;
   const rect=canvas.getBoundingClientRect();
@@ -248,16 +252,16 @@ function drawMap(){
   ctx.clearRect(0,0,w,h);
 
   // grid
-  ctx.strokeStyle='rgba(13,17,23,0.08)';
+  ctx.strokeStyle=P.grid;
   ctx.lineWidth=1;
   for(let i=1;i<4;i++){ const x=(w-80)*(i/4)+40; ctx.beginPath(); ctx.moveTo(x,30); ctx.lineTo(x,h-40); ctx.stroke(); }
   for(let i=1;i<3;i++){ const y=30+(h-70)*(i/3); ctx.beginPath(); ctx.moveTo(40,y); ctx.lineTo(w-40,y); ctx.stroke(); }
 
   // axes labels
-  ctx.fillStyle='rgba(13,17,23,0.55)'; ctx.font='10px ui-monospace, monospace'; ctx.textAlign='center';
+  ctx.fillStyle=P.label; ctx.font='10px ui-monospace, monospace'; ctx.textAlign='center';
   ctx.fillText('Payback → (months)', w/2, h-14);
   ctx.save(); ctx.translate(14, h/2); ctx.rotate(-Math.PI/2); ctx.fillText('AI fit ↑', 0, 0); ctx.restore();
-  ctx.textAlign='left'; ctx.fillStyle='rgba(13,17,23,0.45)'; ctx.fillText('1–3', 40, h-22); ctx.textAlign='right'; ctx.fillText('9–12 / limited', w-40, h-22);
+  ctx.textAlign='left'; ctx.fillStyle=P.sub; ctx.fillText('1–3', 40, h-22); ctx.textAlign='right'; ctx.fillText('9–12 / limited', w-40, h-22);
   ctx.textAlign='left'; ctx.fillText('poor', 44, 38); ctx.textAlign='right'; ctx.fillText('good', w-44, 38);
 
   // points
@@ -274,16 +278,16 @@ function drawMap(){
     points.push({ x, y, r, w:wflow, visible:isVisible });
     // glow
     if(isVisible){
-      ctx.beginPath(); ctx.arc(x,y,r+7,0,Math.PI*2); ctx.fillStyle='rgba(5,80,174,0.07)'; ctx.fill();
+      ctx.beginPath(); ctx.arc(x,y,r+7,0,Math.PI*2); ctx.fillStyle=P.glow; ctx.fill();
     }
     ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2);
-    const col = wflow.industry==='healthcare' ? '#0a7a6a' : wflow.industry==='finance' ? '#6b3fd6' : '#9a6700';
-    ctx.fillStyle = isVisible ? col : 'rgba(120,120,120,0.28)';
+    const col = wflow.industry==='healthcare' ? P.health : wflow.industry==='finance' ? P.finance : P.other;
+    ctx.fillStyle = isVisible ? col : P.dim;
     ctx.fill();
-    ctx.strokeStyle = isVisible ? 'white' : 'rgba(255,255,255,0.6)';
+    ctx.strokeStyle = isVisible ? P.stroke : P.strokeDim;
     ctx.lineWidth=1.5; ctx.stroke();
     if(hover && hover.w.id===wflow.id){
-      ctx.beginPath(); ctx.arc(x,y,r+10,0,Math.PI*2); ctx.strokeStyle='rgba(5,80,174,0.45)'; ctx.lineWidth=1.2; ctx.stroke();
+      ctx.beginPath(); ctx.arc(x,y,r+10,0,Math.PI*2); ctx.strokeStyle=P.hover; ctx.lineWidth=1.2; ctx.stroke();
     }
   }
 }
@@ -354,3 +358,4 @@ renderCards();
 try{ window.analytics.track?.('examples_page_view', {});}catch{}
 
 let ro; try{ ro=new ResizeObserver(()=> drawMap()); ro.observe(canvas);}catch{}
+try{ new MutationObserver(()=> drawMap()).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']}); }catch{}
