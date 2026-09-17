@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="/styles/base.css">
 <link rel="stylesheet" href="/styles/layout.css">
 <link rel="stylesheet" href="/styles/components/contact-form.css">
-<script type="module" src="/scripts/analytics.js"></script>
+<script type="module" data-cfasync="false" src="/scripts/analytics.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Malinowski Consulting—AI SDLC Training","url":"https://malinowskiconsulting.com/ai-sdlc-training/","description":"AI SDLC training for individuals and teams.","provider":{"@type":"Person","name":"Nathan Malinowski"},"areaServed":"Worldwide"}</script>
 </head>
 <body>
@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 </script>
 <script type="module">import{setTheme}from'/scripts/theme.js';for(const b of document.querySelectorAll('.theme-pick [data-option]'))b.addEventListener('click',()=>setTheme(b.dataset.option));</script>
-<script type="module" src="/scripts/components/nav-toggle.js"></script>
+<script type="module" data-cfasync="false" src="/scripts/components/nav-toggle.js"></script>
 <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 <script>
 window.onHcaptchaSuccess = function(token) {

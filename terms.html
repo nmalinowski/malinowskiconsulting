@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="/styles/tokens.css">
 <link rel="stylesheet" href="/styles/base.css">
 <link rel="stylesheet" href="/styles/layout.css">
-<script type="module" src="/scripts/analytics.js"></script>
+<script type="module" data-cfasync="false" src="/scripts/analytics.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -102,6 +102,6 @@
 
 <script src="/scripts/site.js"></script>
 <script type="module">import{setTheme}from'/scripts/theme.js';for(const b of document.querySelectorAll('.theme-pick [data-option]'))b.addEventListener('click',()=>setTheme(b.dataset.option));</script>
-<script type="module" src="/scripts/components/nav-toggle.js"></script>
+<script type="module" data-cfasync="false" src="/scripts/components/nav-toggle.js"></script>
 </body>
 </html>
