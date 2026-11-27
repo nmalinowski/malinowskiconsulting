@@ -1,0 +1,208 @@
+/* Malinowski Consulting - Audit dossier homepage styles.
+   Adapted from the approved site preview (v4). Scoped under main.dossier so
+   the shared masthead, rail, colophon, and contact form keep their own styles.
+   Theme follows the repo theme picker via html[data-theme]; the
+   prefers-color-scheme block below only covers the no-JS auto case. */
+.dossier{
+  --bg:#f7f5f0;
+  --paper:#fffefb;
+  --paper-2:#f1eee7;
+  --ink:#171a1e;
+  --ink-2:#3c434c;
+  --muted:#6b7280;
+  --rule:#d9d2c4;
+  --rule-dark:#171a1e;
+  --accent:#0f4a44;
+  --accent-soft:#e6efec;
+  --stamp:#8c2f26;
+  --check:#0f4a44;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Libre Franklin",system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.65;
+  letter-spacing:-.011em;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  font-feature-settings:"ss01" 1,"kern" 1;
+}
+html[data-theme="dark"] .dossier{
+  --bg:#111315;
+  --paper:#1a1d20;
+  --paper-2:#22262a;
+  --ink:#ece9e2;
+  --ink-2:#c9cdd2;
+  --muted:#9aa1ab;
+  --rule:#343a40;
+  --rule-dark:#ece9e2;
+  --accent:#8fc7bd;
+  --accent-soft:#1e2f2c;
+  --stamp:#e08a80;
+  --check:#8fc7bd;
+}
+@media (prefers-color-scheme: dark){
+  html[data-theme="auto"] .dossier{
+    --bg:#111315;
+    --paper:#1a1d20;
+    --paper-2:#22262a;
+    --ink:#ece9e2;
+    --ink-2:#c9cdd2;
+    --muted:#9aa1ab;
+    --rule:#343a40;
+    --rule-dark:#ece9e2;
+    --accent:#8fc7bd;
+    --accent-soft:#1e2f2c;
+    --stamp:#e08a80;
+    --check:#8fc7bd;
+  }
+}
+.dossier ::selection{background:var(--accent);color:#fff}
+html[data-theme="dark"] .dossier ::selection{color:#111315}
+.dossier a{color:var(--accent);text-underline-offset:3px;transition:color .18s ease,background-color .18s ease,border-color .18s ease}
+.dossier :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.dossier button,.dossier [role="button"],.dossier summary{min-height:44px}
+.dossier .wrap{max-width:1140px;margin:0 auto;padding:0 24px 96px}
+/* Cover sheet */
+.dossier .cover{display:grid;grid-template-columns:1.55fr .85fr;gap:0;border:1px solid var(--rule-dark);border-top:3px solid var(--accent);background:var(--paper);margin-top:28px;padding:0;box-shadow:0 1px 0 var(--rule),0 18px 40px -32px rgba(23,26,30,.35)}
+.dossier .cover::before{content:none}
+.dossier .cover-main{padding:48px 48px 40px;border-right:1px solid var(--rule)}
+.dossier .cover-side{padding:34px 30px;background:var(--paper-2);display:flex;flex-direction:column}
+.dossier .mono{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.dossier .mono-accent{color:var(--accent);font-weight:600}
+.dossier h1{font-family:"Newsreader",serif;font-size:clamp(40px,6.2vw,66px);line-height:.95;letter-spacing:-.032em;font-weight:700;margin:18px 0 22px;text-wrap:balance;font-variation-settings:"opsz" 72}
+.dossier .subhead{font-size:18.5px;line-height:1.62;letter-spacing:-.01em;color:var(--ink-2);margin:0;max-width:33em;text-wrap:pretty}
+.dossier .cover-meta{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--rule);border-left:1px solid var(--rule);margin-top:34px}
+.dossier .cover-meta div{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:16px 18px;transition:background-color .2s ease}
+.dossier .cover-meta div:hover{background:var(--accent-soft)}
+.dossier .cover-meta dt{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin:0 0 7px;font-weight:600}
+.dossier .cover-meta dd{margin:0;font-weight:600;font-size:15px;line-height:1.5;letter-spacing:-.01em}
+.dossier .side-title{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin:0 0 18px;color:var(--ink)}
+.dossier .side-title::after{content:"";display:block;width:28px;height:2px;background:var(--accent);margin-top:10px}
+.dossier .checklist{list-style:none;margin:0;padding:0}
+.dossier .checklist li{display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--rule);font-size:14.5px;font-weight:500;line-height:1.5;align-items:flex-start}
+.dossier .checklist li:last-child{border-bottom:0}
+.dossier .checklist li::before{content:none}
+.dossier .box{flex:0 0 18px;width:18px;height:18px;border:1.5px solid var(--check);margin-top:3px;display:grid;place-items:center;color:var(--check);font-size:12px;line-height:1;font-weight:700;transition:background-color .2s ease,color .2s ease}
+.dossier .checklist li:hover .box{background:var(--check);color:#fff}
+html[data-theme="dark"] .dossier .checklist li:hover .box{color:#111315}
+.dossier .stamp{margin-top:auto;padding-top:26px}
+.dossier .stamp-inner{border:2px solid var(--stamp);color:var(--stamp);padding:11px 12px;text-align:center;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;line-height:1.65;transform:rotate(-1.2deg)}
+/* Exhibits */
+.dossier .exhibit{margin-top:72px;padding:0;border-bottom:0}
+.dossier .ex-head{display:flex;align-items:baseline;gap:18px;border-bottom:2px solid var(--rule-dark);padding-bottom:12px;margin-bottom:0;flex-wrap:wrap;position:relative}
+.dossier .ex-head::after{content:"";position:absolute;left:0;bottom:-2px;width:56px;height:2px;background:var(--accent)}
+.dossier .ex-no{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.15em;color:var(--accent);font-weight:600;white-space:nowrap}
+.dossier .ex-head h2{font-family:"Newsreader",serif;font-size:clamp(28px,3.4vw,34px);line-height:1.05;margin:0;font-weight:700;letter-spacing:-.022em;text-wrap:balance}
+.dossier .ex-head p{margin:0 0 0 auto;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+/* Findings rows */
+.dossier .finding{display:grid;grid-template-columns:56px 240px 1fr;gap:24px;padding:28px 8px 28px 0;border-bottom:1px solid var(--rule);align-items:start;transition:background-color .2s ease}
+.dossier .finding:hover{background:var(--paper)}
+.dossier .finding-num{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted);padding-top:4px}
+.dossier .finding h3{margin:0;font-size:17.5px;line-height:1.3;font-weight:700;letter-spacing:-.015em}
+.dossier .finding p{margin:0;color:var(--ink-2);font-size:16px;line-height:1.65;text-wrap:pretty}
+.dossier .verdict{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 55%,transparent);display:inline-block;padding:4px 8px;margin-top:11px}
+/* Services ledger */
+.dossier .ledger{border-bottom:1px solid var(--rule)}
+.dossier .service{display:grid;grid-template-columns:64px 1fr;gap:20px;padding:28px 8px 28px 0;border-bottom:1px solid var(--rule);transition:background-color .2s ease}
+.dossier .service:hover{background:var(--paper)}
+.dossier .service:last-child{border-bottom:0}
+.dossier .s-no{font-family:"Newsreader",serif;font-size:30px;font-weight:700;color:var(--accent);line-height:.9;letter-spacing:-.02em}
+.dossier .service h3{margin:0 0 7px;font-size:18.5px;font-weight:700;line-height:1.25;letter-spacing:-.015em}
+.dossier .service p{margin:0;color:var(--ink-2);max-width:54em;line-height:1.65;text-wrap:pretty}
+/* Comparison table */
+.dossier .table-wrap{border:1px solid var(--rule-dark);background:var(--paper);overflow:hidden}
+.dossier table{width:100%;border-collapse:collapse;font-size:15px}
+.dossier th,.dossier td{text-align:left;padding:18px 20px;vertical-align:top;border-bottom:1px solid var(--rule);line-height:1.6}
+.dossier tbody tr{transition:background-color .18s ease}
+.dossier tbody tr:hover td{background:color-mix(in srgb,var(--paper-2) 45%,transparent)}
+.dossier tbody tr:hover td:nth-child(2){background:var(--accent-soft)}
+.dossier th{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+.dossier thead th{background:var(--paper-2);border-bottom:2px solid var(--rule-dark)}
+.dossier tbody tr:last-child td{border-bottom:0}
+.dossier td:first-child{font-weight:700;width:22%}
+.dossier td:nth-child(2){width:39%;background:var(--accent-soft)}
+/* Phases */
+.dossier .phases{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--rule-dark);background:var(--paper)}
+.dossier .phase{padding:30px 28px;border-right:1px solid var(--rule);transition:background-color .2s ease}
+.dossier .phase:hover{background:var(--accent-soft)}
+.dossier .phase:last-child{border-right:0}
+.dossier .phase .p-no{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.dossier .phase h3{font-family:"Newsreader",serif;font-size:22px;margin:12px 0 10px;line-height:1.15;letter-spacing:-.018em}
+.dossier .phase p{margin:0;color:var(--ink-2);font-size:15px;line-height:1.65}
+.dossier .deliverable{margin-top:18px;padding-top:15px;border-top:1px dashed var(--rule);font-size:13px}
+.dossier .deliverable strong{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;font-weight:600}
+/* Who we are */
+.dossier .who{display:grid;grid-template-columns:1fr 1fr;gap:36px;padding-top:28px}
+.dossier .who-lede{font-family:"Newsreader",serif;font-size:21px;line-height:1.55;letter-spacing:-.012em;margin:0;text-wrap:pretty}
+.dossier .principal{border-top:3px solid var(--rule-dark);padding-top:20px;position:relative}
+.dossier .principal::before{content:"";position:absolute;top:-3px;left:0;width:44px;height:3px;background:var(--accent)}
+.dossier .principal h3{margin:0;font-size:19px;font-weight:700;letter-spacing:-.015em}
+.dossier .principal .role{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin:7px 0 13px;font-weight:600}
+.dossier .principal p{margin:0;color:var(--ink-2);font-size:15px;line-height:1.65}
+.dossier .principals{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:36px}
+/* Findings callout */
+.dossier .briefing{border:1px solid var(--rule-dark);background:var(--paper);padding:32px 34px;display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;margin-top:28px;transition:box-shadow .22s ease}
+.dossier .briefing:hover{box-shadow:0 14px 32px -24px rgba(23,26,30,.35)}
+.dossier .briefing-mark{font-family:"Newsreader",serif;font-size:42px;line-height:1;color:var(--stamp);font-weight:700}
+.dossier .briefing p{margin:0;font-size:17px;line-height:1.65;color:var(--ink-2)}
+.dossier .briefing p strong{color:var(--ink)}
+.dossier .briefing a{font-weight:700;white-space:nowrap}
+/* FAQ */
+.dossier .faq{border-bottom:1px solid var(--rule)}
+.dossier details{border-bottom:1px solid var(--rule)}
+.dossier details:last-child{border-bottom:0}
+.dossier summary{cursor:pointer;list-style:none;display:flex;gap:14px;align-items:center;padding:20px 4px;font-weight:700;font-size:16px;line-height:1.4;letter-spacing:-.01em;transition:color .18s ease}
+.dossier summary:hover{color:var(--accent)}
+.dossier summary::-webkit-details-marker{display:none}
+.dossier summary .qbox{flex:0 0 20px;width:20px;height:20px;border:1.5px solid var(--ink);display:grid;place-items:center;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;transition:background-color .2s ease,border-color .2s ease,color .2s ease,transform .2s ease}
+.dossier details[open] .qbox{background:var(--accent);border-color:var(--accent);color:#fff;transform:rotate(90deg)}
+html[data-theme="dark"] .dossier details[open] .qbox{color:#111315}
+.dossier details .answer{padding:0 4px 22px 38px;color:var(--ink-2);max-width:54em;line-height:1.65}
+.dossier details .answer p{margin:0}
+/* Closing */
+.dossier .closing{margin-top:72px;border:2px solid var(--rule-dark);background:var(--ink);color:var(--bg);padding:44px 44px 40px}
+html[data-theme="dark"] .dossier .closing{background:#ece9e2;color:#171a1e}
+html[data-theme="dark"] .dossier .closing .mono{color:#5a6573}
+html[data-theme="dark"] .dossier .closing a{color:#0f4a44}
+.dossier .closing h2{font-family:"Newsreader",serif;font-size:clamp(30px,4vw,36px);margin:12px 0 16px;line-height:1.05;letter-spacing:-.022em}
+.dossier .closing p{margin:0;font-size:18px;line-height:1.65;max-width:38em;opacity:.92}
+.dossier .closing a{color:inherit;font-weight:700}
+.dossier .closing-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.dossier .btn{display:inline-flex;align-items:center;min-height:48px;padding:12px 22px;border:1.5px solid currentColor;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:-.01em;transition:background-color .2s ease,color .2s ease,transform .2s ease}
+.dossier .btn:hover{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateY(-1px)}
+html[data-theme="dark"] .dossier .btn:hover{color:#fff}
+/* Contact block (keeps the live request form under the new closing) */
+.dossier .contact-block{margin-top:72px}
+.dossier .contact-block h2{font-family:"Newsreader",serif;font-size:clamp(28px,3.4vw,34px);line-height:1.05;margin:16px 0 12px;font-weight:700;letter-spacing:-.022em}
+.dossier .contact-block .exhibit__tag{display:flex;align-items:center;gap:12px}
+/* Subtle, professional motion */
+.dossier .reveal{opacity:0;transform:translateY(12px);transition:opacity .65s cubic-bezier(.22,.61,.36,1),transform .65s cubic-bezier(.22,.61,.36,1)}
+.dossier .reveal.is-visible{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  .dossier .reveal{opacity:1;transform:none}
+}
+@media (max-width:760px){
+  .dossier .wrap{padding:0 18px 72px}
+  .dossier .exhibit{margin-top:56px}
+  .dossier .cover{grid-template-columns:1fr;margin-top:20px}
+  .dossier .cover-main{border-right:0;border-bottom:1px solid var(--rule);padding:30px 24px 28px}
+  .dossier .cover-side{padding:26px 24px}
+  .dossier .finding{grid-template-columns:36px 1fr;gap:12px;padding:22px 0}
+  .dossier .finding p{grid-column:2}
+  .dossier .service{padding:22px 0}
+  .dossier .closing{margin-top:56px}
+  .dossier .phases,.dossier .who,.dossier .principals{grid-template-columns:1fr}
+  .dossier .phase{border-right:0;border-bottom:1px solid var(--rule)}
+  .dossier .phase:last-child{border-bottom:0}
+  .dossier .briefing{grid-template-columns:1fr;gap:12px;padding:22px}
+  .dossier .briefing a{white-space:normal}
+  .dossier table,.dossier thead,.dossier tbody,.dossier tr,.dossier th,.dossier td{display:block;width:100% !important}
+  .dossier thead{display:none}
+  .dossier td{border-bottom:0;padding:10px 16px}
+  .dossier td:first-child{padding-top:18px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+  .dossier tbody tr{border-bottom:1px solid var(--rule);padding-bottom:10px}
+  .dossier tbody tr:last-child{border-bottom:0}
+  .dossier td::before{content:attr(data-label);display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+  .dossier td:first-child::before{content:"Item"}
+  .dossier .closing{padding:26px 22px}
+}
