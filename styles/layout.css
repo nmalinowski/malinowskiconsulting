@@ -31,14 +31,15 @@
   font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
 }
 .site-nav.nav--open ul.index-nav { display: flex; }
-.index-nav a { color: var(--ink-soft); text-decoration: none; padding: 6px 2px; border-bottom: 1px solid transparent; }
+.index-nav a { color: var(--ink-soft); text-decoration: none; padding: 12px 8px; border-bottom: 1px solid transparent; min-height: 44px; display: flex; align-items: center; }
 .index-nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 .index-nav a b { color: var(--accent); font-weight: 400; margin-right: 6px; }
 .index-nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--accent); }
 .theme-pick { display: inline-flex; border: 1px solid var(--rule-strong); font-size: 10px; letter-spacing: 0.14em; }
 .theme-pick button {
   font: inherit; text-transform: uppercase; background: transparent; border: none;
-  border-left: 1px solid var(--rule-strong); color: var(--ink-soft); padding: 6px 12px; cursor: pointer;
+  border-left: 1px solid var(--rule-strong); color: var(--ink-soft); padding: 6px 14px; cursor: pointer;
+  min-height: 44px; display: inline-flex; align-items: center;
 }
 .theme-pick button:first-child { border-left: none; }
 .theme-pick button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
@@ -53,7 +54,7 @@
   display: inline-flex; align-items: center; gap: 10px;
   font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--ink); background: transparent; border: 1px solid var(--rule-strong);
-  padding: 8px 14px; cursor: pointer;
+  padding: 10px 16px; min-height: 44px; cursor: pointer;
 }
 .nav-toggle__bars { display: inline-flex; flex-direction: column; gap: 4px; }
 .nav-toggle__bar { display: block; width: 18px; height: 2px; background: currentColor; }
@@ -233,7 +234,7 @@ footer.colophon { border-top: 3px double var(--rule-strong); margin-top: 0; padd
 .colophon p { font-size: 14px; color: var(--ink-soft); margin-top: 10px; max-width: 38ch; }
 .colophon h5 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 8px; }
 .colophon ul { list-style: none; font-size: 15px; }
-.colophon ul a { display: inline-block; color: var(--ink); text-decoration: none; padding: 4px 0; }
+.colophon ul a { display: flex; align-items: center; color: var(--ink); text-decoration: none; padding: 10px 0; min-height: 44px; }
 .colophon ul a:hover { color: var(--accent); }
 .colophon ul li { margin-bottom: 4px; }
 .colophon__base {

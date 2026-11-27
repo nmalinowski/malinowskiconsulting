@@ -139,6 +139,9 @@ html[data-theme="dark"] .dossier .checklist li:hover .box{color:#111315}
 .dossier .principal h3{margin:0;font-size:19px;font-weight:700;letter-spacing:-.015em}
 .dossier .principal .role{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin:7px 0 13px;font-weight:600}
 .dossier .principal p{margin:0;color:var(--ink-2);font-size:15px;line-height:1.65}
+.dossier .principal{display:grid;grid-template-columns:128px 1fr;gap:20px;align-items:start}
+.dossier .principal img{width:128px;height:152px;object-fit:cover;display:block;border:1px solid var(--rule)}
+.dossier .principal__text{min-width:0}
 .dossier .principals{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:36px}
 /* Findings callout */
 .dossier .briefing{border:1px solid var(--rule-dark);background:var(--paper);padding:32px 34px;display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;margin-top:28px;transition:box-shadow .22s ease}
@@ -192,6 +195,13 @@ html[data-theme="dark"] .dossier .btn:hover{color:#fff}
   .dossier .service{padding:22px 0}
   .dossier .closing{margin-top:56px}
   .dossier .phases,.dossier .who,.dossier .principals{grid-template-columns:1fr}
+  .dossier .principal{grid-template-columns:1fr;gap:16px}
+  .dossier .principal img{width:100%;max-width:240px;height:200px}
+  .dossier .cover-meta{grid-template-columns:1fr}
+  .dossier .closing-actions{flex-direction:column}
+  .dossier .closing-actions .btn{width:100%;justify-content:center}
+  .dossier .closing a{overflow-wrap:anywhere}
+  .dossier summary{min-height:48px}
   .dossier .phase{border-right:0;border-bottom:1px solid var(--rule)}
   .dossier .phase:last-child{border-bottom:0}
   .dossier .briefing{grid-template-columns:1fr;gap:12px;padding:22px}

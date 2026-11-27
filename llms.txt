@@ -2,7 +2,7 @@
 
 > "Intelligence Meets Compliance"
 
-Malinowski Consulting is a specialized AI strategic advisory firm dedicated to the healthcare and regulated industries. We provide high-level strategy, governance, and technology selection guidance without implementation overhead.
+Malinowski Consulting is a specialized AI strategic advisory firm dedicated to healthcare. We provide high-level strategy, governance, and technology selection guidance without implementation overhead.
 
 ## Founder & Leadership
 **Nathan Malinowski**, Principal Strategy and AI Advisory
